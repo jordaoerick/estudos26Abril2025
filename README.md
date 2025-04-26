@@ -1,1 +1,1 @@
-Apenas estudando programação
+Apenas estudando programação.
