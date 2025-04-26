@@ -1,1 +1,1 @@
-# estudos26Abril2025
+Apenas estudando programação
