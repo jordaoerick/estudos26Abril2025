@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página Completa</title>
+    <style>
+        /* CSS - Estilização da página */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6e48aa, #9d50bb);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            background-color: #333;
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: #6e48aa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h2 {
+            color: #6e48aa;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #6e48aa;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background: #9d50bb;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* Formulário */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrutura HTML -->
+    <header>
+        <h1>Bem-vindo à Minha Página</h1>
+        <p>Uma demonstração completa de HTML, CSS e JavaScript</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="home" class="card">
+            <h2>Seja Bem-vindo</h2>
+            <p>Esta é uma página de demonstração com todos os elementos essenciais de uma página web moderna.</p>
+            <button id="saudacaoBtn" class="btn">Clique para uma Saudação</button>
+            <p id="mensagem" style="margin-top: 1rem;"></p>
+        </section>
+        
+        <section id="sobre" class="card">
+            <h2>Sobre Nós</h2>
+            <p>Somos uma empresa fictícia dedicada a criar páginas web incríveis como esta demonstração.</p>
+            <p>Nossa missão é fornecer exemplos de código de alta qualidade para desenvolvedores.</p>
+        </section>
+        
+        <section id="servicos" class="card">
+            <h2>Nossos Serviços</h2>
+            <ul>
+                <li>Desenvolvimento Web</li>
+                <li>Design Responsivo</li>
+                <li>Interatividade com JavaScript</li>
+                <li>Otimização para SEO</li>
+            </ul>
+        </section>
+        
+        <section id="contato" class="card">
+            <h2>Entre em Contato</h2>
+            <form id="contatoForm">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+            <div id="formFeedback" style="margin-top: 1rem;"></div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Minha Página Completa. Todos os direitos reservados.</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Interatividade com JavaScript
+        
+        // Saudação ao clicar no botão
+        document.getElementById('saudacaoBtn').addEventListener('click', function() {
+            const hora = new Date().getHours();
+            let saudacao;
+            
+            if (hora < 12) {
+                saudacao = "Bom dia!";
+            } else if (hora < 18) {
+                saudacao = "Boa tarde!";
+            } else {
+                saudacao = "Boa noite!";
+            }
+            
+            document.getElementById('mensagem').textContent = saudacao + " Obrigado por visitar nossa página!";
+        });
+        
+        // Validação do formulário
+        document.getElementById('contatoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            
+            // Simulação de envio do formulário
+            document.getElementById('formFeedback').innerHTML = `
+                <div style="background-color: #d4edda; color: #155724; padding: 1rem; border-radius: 4px;">
+                    Obrigado, ${nome}! Sua mensagem foi enviada com sucesso. Responderemos para ${email} em breve.
+                </div>
+            `;
+            
+            // Limpar o formulário
+            this.reset();
+            
+            // Rolar para o feedback
+            document.getElementById('formFeedback').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Efeito de rolagem suave para links do menu
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mudar cor do cabeçalho quando o mouse passa sobre ele
+        const header = document.querySelector('header');
+        const originalBg = header.style.background;
+        
+        header.addEventListener('mouseenter', function() {
+            this.style.background = 'linear-gradient(135deg, #9d50bb, #6e48aa)';
+        });
+        
+        header.addEventListener('mouseleave', function() {
+            this.style.background = originalBg;
+        });
+    </script>
+</body>
+</html>
